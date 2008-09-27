@@ -1,0 +1,32 @@
+# Please note that the mirrorlists URLs are only temporary and will be changed soon.
+# The debuginfo and source repos will also be switching from baseurl to a
+# mirror list.
+
+[rpmfusion-free-rawhide]
+name=RPM Fusion for Fedora $releasever - Free - Rawhide
+failovermethod=priority
+#baseurl=http://download.rpmfusion.org/free/fedora/development/$basearch/os/
+mirrorlist=http://download1.rpmfusion.org/free/fedora/.mirrorlist-free-fedora-rawhide
+failovermethod=roundrobin
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
+
+[rpmfusion-free-rawhide-debuginfo]
+name=RPM Fusion for Fedora $releasever - Free - Rawhide Debug
+failovermethod=priority
+baseurl=http://download1.rpmfusion.org/free/fedora/development/$basearch/debug/
+#mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=rpmfusion-free-rawhide-debug&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
+
+[rpmfusion-free-rawhide-source]
+name=RPM Fusion for Fedora $releasever - Free - Rawhide Source
+failovermethod=priority
+baseurl=http://download1.rpmfusion.org/free/fedora/development/source/SRPMS/
+#mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=rpmfusion-free-rawhide-source&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
+
