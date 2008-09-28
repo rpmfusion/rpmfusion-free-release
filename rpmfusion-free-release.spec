@@ -4,7 +4,7 @@
 Name:           rpmfusion-%{repo}-release
 Version:        9
 Release:        7
-Summary:        RPM Fusion (Free) Repository Configuration
+Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
 License:        BSD
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+!!! not build yet
+- update summary to properly say free or nonfree
+
 * Sat Sep 27 2008 Stewart Adam <s.adam at diffingo.com>	- 9-7
 - Use temporary mirrorlists for now, and baseurl for the debug & source repos
 
