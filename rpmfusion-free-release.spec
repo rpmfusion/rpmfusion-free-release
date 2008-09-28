@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        9
-Release:        7
+Release:        8
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -85,7 +85,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
-!!! not build yet
+* Sun Sep 28 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 9-8
+- Fix rpmfusion-rpmfusion typo (again)
 - update summary to properly say free or nonfree
 
 * Sat Sep 27 2008 Stewart Adam <s.adam at diffingo.com>	- 9-7
