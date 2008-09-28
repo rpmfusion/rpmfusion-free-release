@@ -4,7 +4,7 @@
 Name:           rpmfusion-%{repo}-release
 Version:        9.90
 Release:        1
-Summary:        RPM Fusion (Free) Repository Configuration
+Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
 License:        BSD
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+!!! not build yet
+- update summary to properly say free or nonfree
+
 * Sat Sep 27 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 9.90-1
 - Update for Fedora 10 rawhide
 - enable devel repos, disable all the others
