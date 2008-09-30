@@ -5,7 +5,7 @@
 [rpmfusion-free-updates]
 name=RPM Fusion for Fedora $releasever - Free - Updates
 failovermethod=priority
-#baseurl=http://download.rpmfusion.org/free/fedora/updates/$releasever/$basearch/
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch/
 mirrorlist=http://download1.rpmfusion.org/free/fedora/.mirrorlist-free-fedora-updates
 failovermethod=roundrobin
 enabled=0
