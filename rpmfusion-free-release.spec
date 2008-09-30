@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        8
-Release:        2
+Release:        3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -85,6 +85,10 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Tue Sep 30 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 8-2
+- s|download.rpmfusion.org|download1.rpmfusion.org|' *.repo
+- s|basearch/debug/|basearch/os/debug/|" in *rawhide.repo
+
 * Sun Sep 28 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 8-2
 - Fix rpmfusion-rpmfusion typo (again)
 - update summary to properly say free or nonfree
