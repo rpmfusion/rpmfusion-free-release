@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        8
-Release:        3
+Release:        4
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -17,7 +17,7 @@ Source4:        rpmfusion-%{repo}-rawhide.repo
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
-Requires:       fedora-release >= %{version}
+Requires:       system-release >= %{version}
 
 # If apt is around, it needs to be a version with repomd support
 Conflicts:      apt < 0.5.15lorg3
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sat Oct 04 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 8-4
+- require system-release instead of fedora-release
+
 * Tue Sep 30 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 8-2
 - s|download.rpmfusion.org|download1.rpmfusion.org|' *.repo
 - s|basearch/debug/|basearch/os/debug/|" in *rawhide.repo
