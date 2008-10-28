@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        9
-Release:        10
+Release:        11
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Tue Oct 28 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 9-11
+- disable testing repos
+
 * Sat Oct 04 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 9-10
 - require system-release instead of fedora-release
 
