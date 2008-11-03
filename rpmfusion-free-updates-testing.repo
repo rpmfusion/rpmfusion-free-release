@@ -1,31 +1,23 @@
-# Please note that the mirrorlists URLs are only temporary and will be changed soon.
-# The debuginfo and source repos will also be switching from baseurl to a
-# mirror list.
-
 [rpmfusion-free-updates-testing]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates
-failovermethod=priority
 #baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/$basearch/
-mirrorlist=http://download1.rpmfusion.org/free/fedora/.mirrorlist-free-fedora-updates-testing
-failovermethod=roundrobin
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-$releasever&arch=$basearch
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
 
 [rpmfusion-free-updates-testing-debuginfo]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates Debug
-failovermethod=priority
-baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/$basearch/debug/
-#mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=rpmfusion-free-updates-testing-debug-f$releasever&arch=$basearch
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/$basearch/debug/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-debug-$releasever&arch=$basearch
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
 
 [rpmfusion-free-updates-testing-source]
 name=RPM Fusion for Fedora $releasever - Free - Test Updates Source
-failovermethod=priority
-baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/SRPMS/
-#mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=rpmfusion-free-updates-testing-source-f$releasever&arch=$basearch
+#baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/SRPMS/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-updates-testing-source-$releasever&arch=$basearch
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
