@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        8
-Release:        5
+Release:        6
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Mon Nov 03 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 8-6
+- enable the proper mirrormanager server in the repo files
+
 * Tue Oct 28 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 8-5
 - disable testing repos
 
