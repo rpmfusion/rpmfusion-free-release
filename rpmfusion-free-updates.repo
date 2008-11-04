@@ -1,0 +1,24 @@
+[rpmfusion-free-updates]
+name=RPM Fusion for EL 5 - Free - Updates
+#baseurl=http://download1.rpmfusion.org/free/el/updates/5/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-released-5&arch=$basearch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el
+
+[rpmfusion-free-updates-debuginfo]
+name=RPM Fusion for EL 5 - Free - Updates Debug
+#baseurl=http://download1.rpmfusion.org/free/el/updates/5/$basearch/debug/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-released-debug-5&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el
+
+[rpmfusion-free-updates-source]
+name=RPM Fusion for EL 5 - Free - Updates Source
+#baseurl=http://download1.rpmfusion.org/free/el/updates/5/SRPMS/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-released-source-5&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el
+
