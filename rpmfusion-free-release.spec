@@ -2,8 +2,8 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        9.90
-Release:        5
+Version:        10
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sat Nov 15 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 10-1
+- build for F-10
+
 * Mon Nov 03 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 9.90-5
 - enable the proper mirrormanager server in the repo files
 
