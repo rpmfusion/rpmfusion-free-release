@@ -2,7 +2,7 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        10
+Version:        10.90
 Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Wed Nov 26 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 10.90-1
+- Initial build for Fedora 11.
+
 * Sat Nov 15 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 10-1
 - build for F-10
 
