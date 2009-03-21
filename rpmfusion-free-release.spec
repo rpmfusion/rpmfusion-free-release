@@ -73,14 +73,10 @@ install -d -m755 \
 %{__install} -Dp -m644 %{SOURCE0} %{SOURCE10} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
-# Links for the Keys
+# Links for the keys
 for i in i386 x86_64 ppc ppc64; do
-  ln -s $(basename %{SOURCE10}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-${i}
+  ln -s $(basename %{SOURCE10}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-${i}
 done
-
-ls -l $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/
-sleep 5
-
 
 # Yum .repo files
 %{__install} -p -m644 %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} \
