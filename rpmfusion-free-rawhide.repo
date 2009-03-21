@@ -4,7 +4,7 @@ name=RPM Fusion for Fedora Rawhide - Free
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide&arch=$basearch
 enabled=1
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$basearch
 
 [rpmfusion-free-rawhide-debuginfo]
 name=RPM Fusion for Fedora Rawhide - Free - Debug
@@ -12,7 +12,7 @@ name=RPM Fusion for Fedora Rawhide - Free - Debug
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-debug&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$basearch
 
 [rpmfusion-free-rawhide-source]
 name=RPM Fusion for Fedora Rawhide - Free - Source
@@ -20,5 +20,5 @@ name=RPM Fusion for Fedora Rawhide - Free - Source
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-rawhide-source&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$basearch
 

@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        10.90
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -14,6 +14,7 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
+Source10:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-11-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -69,8 +70,17 @@ install -d -m755 \
   $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
 # GPG Key
-%{__install} -Dp -m644 %{SOURCE0} \
+%{__install} -Dp -m644 %{SOURCE0} %{SOURCE10} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
+
+# Links for the Keys
+for i in i386 x86_64 ppc ppc64; do
+  ln -s $(basename %{SOURCE10}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-${i}
+done
+
+ls -l $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/
+sleep 5
+
 
 # Yum .repo files
 %{__install} -p -m644 %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} \
@@ -85,6 +95,10 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sat Mar 21 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 10.90-2
+- add new key for SHA256 signatures
+- use the same structure for keys as fedora does
+
 * Wed Nov 26 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 10.90-1
 - Initial build for Fedora 11.
 
