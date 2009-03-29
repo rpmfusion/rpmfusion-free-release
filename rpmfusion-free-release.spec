@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        10.90
-Release:        2
+Release:        3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -91,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 10.90-3
+- rebuild for new F11 features
+
 * Sat Mar 21 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 10.90-2
 - add new key for SHA256 signatures
 - use the same structure for keys as fedora does
