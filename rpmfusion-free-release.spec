@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        10
-Release:        4
+Release:        5
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -26,16 +26,6 @@ Conflicts:      apt < 0.5.15lorg3
 
 %if %{repo} == "nonfree"
 Requires:       rpmfusion-free-release >= %{version}
-# enable those once RPM Fusion is in full production and ready
-# to obsolete the old repos:
-#Provides:   freshrpms-release = %{version}-%{release}
-#Obsoletes:  freshrpms-release <= %{version}-%{release}
-
-#Provides:   livna-release  = %{version}-%{release}
-#Obsoletes:  livna-release <= %{version}-%{release}
-
-#Provides:   dribble-release  = %{version}-%{release}
-#Obsoletes:  dribble-release <= %{version}-%{release}
 
 %description
 RPM Fusion repository contains open source and other distributable software for
@@ -79,9 +69,11 @@ ln -s $(basename %{SOURCE10}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 
 # Links for the keys
 for i in i386 x86_64 ppc ppc64; do
-	  ln -s $(basename %{SOURCE10}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-10-${i}
+  ln -s $(basename %{SOURCE10}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-10-${i}
   ln -s $(basename %{SOURCE11}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-11-${i}
   ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-12-${i}
+  ln -s $(basename %{SOURCE11}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
+  ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
 done
 
 
@@ -107,6 +99,10 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sun May 17 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 10-5
+- remove old comments to obsolete release packages from freshrpms, dribble and livna
+- add proper links for rawhide 
+
 * Sun May 17 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 10-4
 - add key for F12
 - some small adjustments to the spec
