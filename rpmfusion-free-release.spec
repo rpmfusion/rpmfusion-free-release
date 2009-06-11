@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        11
-Release:        1
+Release:        90
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -97,6 +97,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Thu Jun 11 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 11.90-1
+- build for rawhide (enable rawhide, disable all the other repos)
+
 * Sun May 17 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 11-1
 - F11 release: disable rawhide, enable everything and updates
 - use "metadata_expire=7d" for everything repos
