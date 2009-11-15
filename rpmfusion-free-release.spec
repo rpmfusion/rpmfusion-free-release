@@ -2,7 +2,7 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        11.90
+Version:        12
 Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -13,8 +13,8 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source11:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-11-primary
 Source12:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-12-primary
+Source13:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-13-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -60,18 +60,18 @@ install -d -m755 \
   $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
 # GPG Key
-%{__install} -Dp -m644 %{SOURCE11} %{SOURCE12} \
+%{__install} -Dp -m644 %{SOURCE12} %{SOURCE13} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
-ln -s $(basename %{SOURCE11}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
+ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Links for the keys
 for i in i386 x86_64 ppc ppc64; do
-  ln -s $(basename %{SOURCE11}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-11-${i}
   ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-12-${i}
-  ln -s $(basename %{SOURCE11}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
-  ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
+  ln -s $(basename %{SOURCE13}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-13-${i}
+  ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
+  ln -s $(basename %{SOURCE13}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
 done
 
 
@@ -97,6 +97,11 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sun Nov 15 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 12-1
+- F12 release: disable rawhide, enable everything and updates
+- remove key for F11
+- add key for F13
+
 * Thu Jun 11 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 11.90-1
 - build for rawhide (enable rawhide, disable all the other repos)
 
@@ -113,7 +118,6 @@ rm -rf $RPM_BUILD_ROOT
 - Track in some changes from 10-{23} (Till Maas):
 -- fix symlinks
 -- allow easy transition to F11 with new gpg key and naming structure
-- 
 
 * Sun May 17 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 10-4
 - add key for F12
@@ -126,8 +130,6 @@ rm -rf $RPM_BUILD_ROOT
 
 * Sat May 16 2009 Till Maas <opensource@till.name> - 10-2
 - allow easy transition to F11 with new gpg key and naming structure
-
-
 
 * Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 10.90-3
 - rebuild for new F11 features
