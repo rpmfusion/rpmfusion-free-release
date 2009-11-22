@@ -2,8 +2,8 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        12
-Release:        1
+Version:        13
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -79,14 +79,6 @@ done
 %{__install} -p -m644 %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
-%post
-if grep 'mirrorlist=http://download1.rpmfusion.org/' %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}.repo &> /dev/null ; then
-  sed -i 's!mirrorlist=http://download1.rpmfusion.org/%{repo}/fedora/.mirrorlist-%{repo}-fedora-releases$!mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=%{repo}-fedora-$releasever\&arch=$basearch!' %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}.repo
-fi
-if grep 'mirrorlist=http://download1.rpmfusion.org/' %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-updates.repo &> /dev/null ; then
-  sed -i 's!mirrorlist=http://download1.rpmfusion.org/%{repo}/fedora/.mirrorlist-%{repo}-fedora-updates$!mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=%{repo}-fedora-updates-released-$releasever\&arch=$basearch!' %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-updates.repo
-fi
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -97,6 +89,11 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sun Nov 22 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 13-1
+- Bump for Fedora 13's rawhide.
+- Put the version at 13 from the start. 
+- drop post script
+
 * Sun Nov 15 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 12-1
 - F12 release: disable rawhide, enable everything and updates
 - remove key for F11
