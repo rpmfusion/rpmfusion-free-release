@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        13
-Release:        0.1
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -13,8 +13,8 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source12:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-12-primary
 Source13:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-13-primary
+Source14:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-14-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -60,7 +60,9 @@ install -d -m755 \
   $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
 # GPG Key
-%{__install} -Dp -m644 %{SOURCE12} %{SOURCE13} \
+%{__install} -Dp -m644 \
+    %{SOURCE13} \
+    %{SOURCE14} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
@@ -68,10 +70,10 @@ ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 
 # Links for the keys
 for i in i386 x86_64 ppc ppc64; do
-  ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-12-${i}
   ln -s $(basename %{SOURCE13}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-13-${i}
-  ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
-  ln -s $(basename %{SOURCE13}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
+  ln -s $(basename %{SOURCE14}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-14-${i}
+  ln -s $(basename %{SOURCE13}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
+  ln -s $(basename %{SOURCE14}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
 done
 
 
@@ -89,7 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
-* Sun Nov 22 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 13-1
+* Fri Apr 16 2010 Thorsten Leemhuis <fedora at leemhuis.info> - 13-1
+- add key for Rawhide/F14
+- remove key for F12
+
+* Sun Nov 22 2009 Thorsten Leemhuis <fedora at leemhuis.info> - 13-0.1
 - Bump for Fedora 13's rawhide.
 - Put the version at 13 from the start. 
 - drop post script
