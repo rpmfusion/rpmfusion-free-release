@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        13
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -66,7 +66,7 @@ install -d -m755 \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
-ln -s $(basename %{SOURCE12}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
+ln -s $(basename %{SOURCE13}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Links for the keys
 for i in i386 x86_64 ppc ppc64; do
@@ -91,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Mon Apr 26 2010 Thorsten Leemhuis <fedora at leemhuis.info> - 13-2
+- fix compatibility symlink
+
 * Fri Apr 16 2010 Thorsten Leemhuis <fedora at leemhuis.info> - 13-1
 - add key for Rawhide/F14
 - remove key for F12
