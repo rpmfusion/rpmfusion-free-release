@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        14
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -91,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sun Oct 10 2010 Thorsten Leemhuis <fedora at leemhuis.info> - 14-0.3
+- branching for F14: disable rawhide, enable everything and updates
+
 * Mon Apr 26 2010 Thorsten Leemhuis <fedora at leemhuis.info> - 14-0.2
 - fix compatibility symlink
 
