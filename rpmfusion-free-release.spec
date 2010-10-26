@@ -2,8 +2,8 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        14
-Release:        0.4
+Version:        15
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -91,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Tue Oct 26 2010 Thorsten Leemhuis <fedora at leemhuis.info> - 15-0.1
+- build for rawhide
+
 * Sat Oct 16 2010 Thorsten Leemhuis <fedora at leemhuis.info> - 14-0.4
 - drop ppc
 - add key for F-15, drop the one for F-13
