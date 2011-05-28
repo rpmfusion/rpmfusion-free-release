@@ -2,7 +2,7 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        14
+Version:        15
 Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
