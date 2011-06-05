@@ -2,8 +2,8 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        15
-Release:        1
+Version:        16
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -13,7 +13,6 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source14:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-14-primary
 Source15:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-15-primary
 Source16:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-16-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -64,7 +63,6 @@ install -d -m755 \
 %{__install} -Dp -m644 \
     %{SOURCE14} \
     %{SOURCE15} \
-    %{SOURCE16} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
@@ -72,7 +70,6 @@ ln -s $(basename %{SOURCE14}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 
 # Links for the keys
 for i in i386 x86_64; do
-  ln -s $(basename %{SOURCE14}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-14-${i}
   ln -s $(basename %{SOURCE15}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-15-${i}
   ln -s $(basename %{SOURCE16}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-16-${i}
   ln -s $(basename %{SOURCE15}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
@@ -94,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sun Jun 05 2011 Thorsten Leemhuis <fedora at leemhuis.info> - 16.1
+- build for rawhide/F-16
+
 * Sat May 28 2011 Thorsten Leemhuis <fedora at leemhuis.info> - 15-1
 - Add keys for Rawhide/F16
 - Build for F-15
