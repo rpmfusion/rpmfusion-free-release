@@ -64,6 +64,7 @@ install -d -m755 \
 %{__install} -Dp -m644 \
     %{SOURCE15} \
     %{SOURCE16} \
+    %{SOURCE17} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
