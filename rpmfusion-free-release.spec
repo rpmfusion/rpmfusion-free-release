@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        14
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
