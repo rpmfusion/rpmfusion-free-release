@@ -16,7 +16,7 @@ Source4:        rpmfusion-%{repo}-rawhide.repo
 Source14:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-14-primary
 Source15:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-15-primary
 Source16:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-16-primary
-Source16:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-primary
+Source17:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -66,6 +66,7 @@ install -d -m755 \
     %{SOURCE14} \
     %{SOURCE15} \
     %{SOURCE16} \
+    %{SOURCE17} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
