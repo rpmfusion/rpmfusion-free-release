@@ -13,6 +13,7 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
+Source14:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-14-primary
 Source15:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-15-primary
 Source16:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-16-primary
 Source17:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-primary
@@ -93,6 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Wed Nov 02 2011 Xavier Lamien <laxathom@fedoraproject.org> 16-1.1
+- Fix symlink on RPM-GPG-KEY-14.
+
 * Thu Oct 27 2011 Nicolas Chauvet <kwizart@gmail.com> - 16-1
 - Add keys for Rawhide/F-17
 - Build for F-16
