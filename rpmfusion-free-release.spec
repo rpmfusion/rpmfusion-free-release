@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        16
-Release:        1.1
+Release:        1.2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -64,6 +64,7 @@ install -d -m755 \
 %{__install} -Dp -m644 \
     %{SOURCE15} \
     %{SOURCE16} \
+    %{SOURCE17} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
@@ -93,8 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
-* Wed Nov 02 2011 Nicolas Chauvet <kwizart@gmail.com> - 16-1.1
+* Wed Nov 02 2011 Nicolas Chauvet <kwizart@gmail.com> - 16-1.2
 - Fix compat key for F-15
+- Fix Installation of F-17 key
 
 * Thu Oct 27 2011 Nicolas Chauvet <kwizart@gmail.com> - 16-1
 - Add keys for Rawhide/F-17
