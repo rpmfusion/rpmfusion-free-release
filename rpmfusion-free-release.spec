@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        16
-Release:        1
+Release:        1.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -13,7 +13,6 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source14:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-14-primary
 Source15:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-15-primary
 Source16:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-16-primary
 Source17:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-primary
@@ -68,7 +67,7 @@ install -d -m755 \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
-ln -s $(basename %{SOURCE14}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
+ln -s $(basename %{SOURCE15}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Links for the keys
 for i in i386 x86_64; do
@@ -94,8 +93,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
-* Wed Nov 02 2011 Xavier Lamien <laxathom@fedoraproject.org> 16-1.1
-- Fix symlink on RPM-GPG-KEY-14.
+* Wed Nov 02 2011 Nicolas Chauvet <kwizart@gmail.com> - 16-1.1
+- Fix compat key for F-15
 
 * Thu Oct 27 2011 Nicolas Chauvet <kwizart@gmail.com> - 16-1
 - Add keys for Rawhide/F-17
