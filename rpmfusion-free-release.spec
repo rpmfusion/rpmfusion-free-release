@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        17
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -15,6 +15,7 @@ Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
 Source16:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-16-primary
 Source17:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-primary
+Source18:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -63,6 +64,7 @@ install -d -m755 \
 %{__install} -Dp -m644 \
     %{SOURCE16} \
     %{SOURCE17} \
+    %{SOURCE18} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
@@ -73,7 +75,7 @@ for i in i386 x86_64; do
   ln -s $(basename %{SOURCE16}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-16-${i}
   ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-${i}
   ln -s $(basename %{SOURCE16}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
-  ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
+  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
 done
 
 
@@ -91,6 +93,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sat Feb 11 2012 Nicolas Chauvet <kwizart@gmail.com> - 17-0.2
+- Bump for branched F-17
+
 * Sat Nov 19 2011 Nicolas Chauvet <kwizart@gmail.com> - 17-0.1
 - build for rawhide/F-17
 - Drop key for F-15
