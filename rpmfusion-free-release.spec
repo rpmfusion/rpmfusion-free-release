@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        15
-Release:        4
+Release:        5
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -98,6 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Mon Feb 27 2012 Nicolas Chauvet <kwizart@gmail.com> - 15-5
+- Split development to development/rawhide
+
 * Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 15-4
 - Add keys for Rawhide/F-18
 
