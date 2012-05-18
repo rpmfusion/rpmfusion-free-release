@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        17
-Release:        0.5
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -90,6 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Fri May 18 2012 Nicolas Chauvet <kwizart@gmail.com> - 17-1
+- Update to final 17
+
 * Tue Mar 06 2012 Nicolas Chauvet <kwizart@gmail.com> - 17-0.5
 - Bump
 
