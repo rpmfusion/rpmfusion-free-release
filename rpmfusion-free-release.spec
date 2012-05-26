@@ -2,7 +2,7 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        17
+Version:        17.0.1
 Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -90,6 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sat May 26 2012 Nicolas Chauvet <kwizart@gmail.com> - 17.0.1-1
+- Switch to releases repo
+
 * Fri May 18 2012 Nicolas Chauvet <kwizart@gmail.com> - 17-1
 - Update to final 17
 
