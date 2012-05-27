@@ -2,7 +2,7 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        17.0.2
+Version:        17.0.3
 Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -18,7 +18,7 @@ Source18:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
-Requires:       system-release >= %{version}
+Requires:       system-release >= 17
 
 # If apt is around, it needs to be a version with repomd support
 Conflicts:      apt < 0.5.15lorg3
@@ -90,7 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
-* Sun May 27 2012 Nicolas Chauvet <kwizart@gmail.com> - 17.0.2-1
+* Sun May 27 2012 Nicolas Chauvet <kwizart@gmail.com> - 17.0.3-1
+- Hardcode system-release version
 - Switch back metadata_expire
 
 * Sat May 26 2012 Nicolas Chauvet <kwizart@gmail.com> - 17.0.1-1
