@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        5
-Release:        0.1
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -76,5 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Tue Jun 19 2012 Nicolas Chauvet <kwizart@gmail.com> - 5-1
+- Release for EL-5
+
 * Mon Nov 03 2008 Thorsten Leemhuis <fedora at leemhuis.info> - 5-0.1
 - Initial RPM release based on the rpmfusion-free-release for rawhide
