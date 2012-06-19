@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        6
-Release:        0.1
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -76,5 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Tue Jun 19 2012 Nicolas Chauvet <kwizart@gmail.com> - 6-1
+- Release for EL-6
+
 * Sun May 01 2011 Robert Scheck <robert@fedoraproject.org> 6-0.1
 - Initial RPM release based on Thorsten Leemhuis' work for EL-5

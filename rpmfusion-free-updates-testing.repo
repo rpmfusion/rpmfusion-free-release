@@ -2,7 +2,7 @@
 name=RPM Fusion for EL 6 - Free - Test Updates
 #baseurl=http://download1.rpmfusion.org/free/el/updates/testing/6/$basearch/
 mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-6&arch=$basearch
-enabled=1
+enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-6
 
