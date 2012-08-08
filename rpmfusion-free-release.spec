@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        18
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -90,6 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Wed Aug 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.2
+- Bump for Branched/F-18
+
 * Fri May 18 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.1
 - Build for Rawhide/F-18
 
