@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        18
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -15,6 +15,7 @@ Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
 Source17:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-primary
 Source18:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-primary
+Source19:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -63,6 +64,7 @@ install -d -m755 \
 %{__install} -Dp -m644 \
     %{SOURCE17} \
     %{SOURCE18} \
+    %{SOURCE19} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
@@ -71,8 +73,9 @@ ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 # Links for the keys
 for i in i386 x86_64; do
   ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-${i}
-  ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
-  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
+  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-${i}
+  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
+  ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
 done
 
 
@@ -90,6 +93,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Mon Sep 17 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.3
+- Add F-19 key for Rawhide
+
 * Wed Aug 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.2
 - Bump for Branched/F-18
 
