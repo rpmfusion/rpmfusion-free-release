@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        18
-Release:        0.3
+Release:        0.4
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -93,6 +93,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Fri Sep 21 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.4
+- Enable updates - empty for now
+
 * Mon Sep 17 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.3
 - Add F-19 key for Rawhide
 
