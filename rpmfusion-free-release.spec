@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        18
-Release:        0.4
+Release:        0.5
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -71,7 +71,7 @@ install -d -m755 \
 ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Links for the keys
-for i in i386 x86_64; do
+for i in i386 x86_64 arm armhfp ppc ppc64; do
   ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-${i}
   ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-${i}
   ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
@@ -93,6 +93,10 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sat Dec 22 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.5
+- Disable updates-testing
+- Add symlinks for secondary
+
 * Fri Sep 21 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.4
 - Enable updates - empty for now
 
