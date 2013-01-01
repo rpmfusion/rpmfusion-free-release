@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        18
-Release:        0.5
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -13,9 +13,9 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source17:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-primary
 Source18:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-primary
 Source19:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19-primary
+Source20:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-20-primary
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -62,21 +62,17 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE17} \
     %{SOURCE18} \
     %{SOURCE19} \
+    %{SOURCE20} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
-ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
+ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Links for the keys
-for i in i386 x86_64 arm armhfp ppc ppc64; do
-  ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-${i}
-  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-${i}
-  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
-  ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
-done
+ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE20}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -93,6 +89,10 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Tue Jan 01 2013 Nicolas Chauvet <kwizart@gmail.com> - 18-1
+- Update to final 18
+- Remove basearch from the gpg key
+
 * Sat Dec 22 2012 Nicolas Chauvet <kwizart@gmail.com> - 18-0.5
 - Disable updates-testing
 - Add symlinks for secondary
