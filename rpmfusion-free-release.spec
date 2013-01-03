@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        18
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -67,8 +67,10 @@ install -d -m755 \
     %{SOURCE20} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
-# compatibility symlink for easy transition to F11
-ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
+# Avoid using basearch in name for the key. Introduced in F18
+ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18
+ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19
+ln -s $(basename %{SOURCE20}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-20
 
 # Links for the keys
 ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
@@ -89,6 +91,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Thu Jan 03 2013 Nicolas Chauvet <kwizart@gmail.com> - 18-2
+- Fix namespace of the gpg key
+
 * Tue Jan 01 2013 Nicolas Chauvet <kwizart@gmail.com> - 18-1
 - Update to final 18
 - Remove basearch from the gpg key
