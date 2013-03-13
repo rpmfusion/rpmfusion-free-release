@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        19
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -89,6 +89,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Wed Mar 13 2013 Nicolas Chauvet <kwizart@gmail.com> - 19-0.3
+- Branch F-19
+
 * Tue Jan 01 2013 Nicolas Chauvet <kwizart@gmail.com> - 19-0.2
 - Add key for Rawhide/F-20
 
