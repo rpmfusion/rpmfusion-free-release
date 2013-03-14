@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        19
-Release:        0.3
+Release:        0.4
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -70,9 +70,21 @@ install -d -m755 \
 # compatibility symlink for easy transition to F11
 ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
+# Avoid using basearch in name for the key. Introduced in F18
+ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18
+ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19
+ln -s $(basename %{SOURCE20}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-20
+
 # Links for the keys
 ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
 ln -s $(basename %{SOURCE20}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+
+# Compatibility Links for the keys for F-17 > Later update.
+# Can be dropped by F-20
+for i in i386 x86_64 arm armhfp ; do
+  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-${i}
+  ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19-${i}
+done
 
 
 # Yum .repo files
@@ -89,6 +101,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Thu Mar 14 2013 Nicolas Chauvet <kwizart@gmail.com> - 19-0.4
+- Fix GPG's key name
+
 * Wed Mar 13 2013 Nicolas Chauvet <kwizart@gmail.com> - 19-0.3
 - Branch F-19
 
