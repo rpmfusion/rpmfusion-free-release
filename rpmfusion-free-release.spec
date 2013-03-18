@@ -2,7 +2,7 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        17.0.4
+Version:        17.0.5
 Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -73,6 +73,8 @@ ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 # Links for the keys
 for i in i386 x86_64 arm armhfp ppc ppc64; do
   ln -s $(basename %{SOURCE17}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-17-${i}
+  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-${i}
+  ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19-${i}
   ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest-${i}
   ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide-${i}
 done
@@ -92,6 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Mon Mar 18 2013 Nicolas Chauvet <kwizart@gmail.com> - 17.0.5-1
+- Add missing symlinks for F-n+2 - rfbz#2644
+
 * Wed Nov 21 2012 Nicolas Chauvet <kwizart@gmail.com> - 17.0.4-1
 - Add key for F-19
 - Add symlinks for secondary
