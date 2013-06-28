@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        20
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -13,16 +13,13 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source18:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-primary
 Source19:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19-primary
 Source20:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-20-primary
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source21:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-21-primary
 BuildArch:      noarch
 
 Requires:       system-release >= %{version}
 
-# If apt is around, it needs to be a version with repomd support
-Conflicts:      apt < 0.5.15lorg3
 
 %if %{repo} == "nonfree"
 Requires:       rpmfusion-free-release >= %{version}
@@ -53,7 +50,6 @@ echo "Nothing to prep"
 echo "Nothing to build"
 
 %install
-rm -rf $RPM_BUILD_ROOT
 
 # Create dirs
 install -d -m755 \
@@ -62,29 +58,22 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE18} \
     %{SOURCE19} \
     %{SOURCE20} \
+    %{SOURCE21} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
 ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18
 ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19
 ln -s $(basename %{SOURCE20}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-20
+ln -s $(basename %{SOURCE21}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-21
 
 # Links for the keys
 ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
 ln -s $(basename %{SOURCE20}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
-
-# Compatibility Links for the keys for F-17 > Later update.
-# Can be dropped by F-20
-for i in i386 x86_64 arm armhfp ; do
-  ln -s $(basename %{SOURCE18}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-18-${i}
-  ln -s $(basename %{SOURCE19}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-19-${i}
-done
 
 
 # Yum .repo files
@@ -92,15 +81,15 @@ done
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
-%defattr(-,root,root,-)
 %{_sysconfdir}/pki/rpm-gpg/*
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Fri Jun 28 2013 Nicolas Chauvet <kwizart@gmail.com> - 20-0.2
+- Add key for Rawhide/F-21
+- Spec file clean-up
+
 * Mon Mar 18 2013 Nicolas Chauvet <kwizart@gmail.com> - 20-0.1
 - Build for Rawhide/F-20
 
