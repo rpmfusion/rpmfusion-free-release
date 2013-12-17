@@ -58,9 +58,9 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE19} \
     %{SOURCE20} \
     %{SOURCE21} \
+    %{SOURCE22} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
