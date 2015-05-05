@@ -2,8 +2,8 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        21
-Release:        1
+Version:        22
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -13,9 +13,9 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source21:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-21-primary
 Source22:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-22-primary
 Source23:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-23-primary
+Source24:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-24-primary
 BuildArch:      noarch
 
 Requires:       system-release >= %{version}
@@ -58,22 +58,22 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE21} \
     %{SOURCE22} \
     %{SOURCE23} \
+    %{SOURCE24} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
 ln -s $(basename %{SOURCE21}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE21}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-21
 ln -s $(basename %{SOURCE22}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-22
 ln -s $(basename %{SOURCE23}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-23
+ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-24
 
 # Links for the keys
-ln -s $(basename %{SOURCE22}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE23}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE23}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -86,6 +86,9 @@ ln -s $(basename %{SOURCE23}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Tue May 05 2015 Nicolas Chauvet <kwizart@gmail.com> - 22-0.1
+- Bump for branched/f22
+
 * Mon Dec 08 2014 Nicolas Chauvet <kwizart@gmail.com> - 21-1
 - Update to Final F-21
 
