@@ -2,14 +2,14 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        6
+Version:        7
 Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
 License:        BSD
 URL:            http://rpmfusion.org
-Source0:        RPM-GPG-KEY-rpmfusion-%{repo}-el-6
+Source0:        RPM-GPG-KEY-rpmfusion-%{repo}-el-7
 # not needed for now, but maybe we'll do that later:
 # Source1:      rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
@@ -20,8 +20,6 @@ BuildArch:      noarch
 Requires:       redhat-release >= %{version}
 Requires:       epel-release >= %{version}
 
-# If apt is around, it needs to be a version with repomd support
-Conflicts:      apt < 0.5.15lorg3
 
 %if %{repo} == "nonfree"
 Requires:       rpmfusion-free-release >= %{version}

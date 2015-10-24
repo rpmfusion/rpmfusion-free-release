@@ -1,24 +1,24 @@
 [rpmfusion-free-updates-testing]
-name=RPM Fusion for EL 6 - Free - Test Updates
-#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/6/$basearch/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-6&arch=$basearch
+name=RPM Fusion for EL 7 - Free - Test Updates
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/7/$basearch/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-7&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-6
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-7
 
 [rpmfusion-free-updates-testing-debuginfo]
-name=RPM Fusion for EL 6 - Free - Test Updates Debug
-#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/6/$basearch/debug/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-debug-6&arch=$basearch
+name=RPM Fusion for EL 7 - Free - Test Updates Debug
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/7/$basearch/debug/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-debug-7&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-6
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-7
 
 [rpmfusion-free-updates-testing-source]
-name=RPM Fusion for EL 6 - Free - Test Updates Source
-#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/6/SRPMS/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-source-6&arch=$basearch
+name=RPM Fusion for EL 7 - Free - Test Updates Source
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/7/SRPMS/
+mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-el-updates-testing-source-7&arch=$basearch
 enabled=0
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-6
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-7
 
