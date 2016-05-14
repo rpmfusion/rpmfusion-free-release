@@ -2,7 +2,7 @@
 #define repo nonfree
 
 Name:           rpmfusion-%{repo}-release
-Version:        23
+Version:        24
 Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -86,6 +86,9 @@ ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sat May 14 2016 Nicolas Chauvet <kwizart@gmail.com> - 24-0.1
+- Update to 24
+
 * Sat Oct 24 2015 Nicolas Chauvet <kwizart@gmail.com> - 23-0.1
 - Bump for branched/f23
 
