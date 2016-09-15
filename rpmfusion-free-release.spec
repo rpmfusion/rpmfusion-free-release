@@ -14,7 +14,6 @@ Source0:        RPM-GPG-KEY-rpmfusion-%{repo}-el-7
 # Source1:      rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
 Requires:       redhat-release >= %{version}
@@ -50,8 +49,6 @@ echo "Nothing to prep"
 echo "Nothing to build"
 
 %install
-rm -rf $RPM_BUILD_ROOT
-
 # Create dirs
 install -d -m755 \
   $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg  \
@@ -65,15 +62,14 @@ install -d -m755 \
 %{__install} -p -m644 %{SOURCE2} %{SOURCE3} \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
-%defattr(-,root,root,-)
 %{_sysconfdir}/pki/rpm-gpg/*
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Thu Sep 15 2016 Nicolas Chauvet <kwizart@gmail.com> - 7-1
+- Release for EL-7
+
 * Tue Jun 19 2012 Nicolas Chauvet <kwizart@gmail.com> - 6-1
 - Release for EL-6
 
