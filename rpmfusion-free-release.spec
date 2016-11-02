@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        26
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -86,6 +86,9 @@ ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Wed Nov 02 2016 Nicolas Chauvet <kwizart@gmail.com> - 26-0.3
+- Add metalinks over https
+
 * Wed Aug 24 2016 Sérgio Basto <sergio@serjux.com> - 26-0.2
 - Fix current symlink and f25 symlink
 
