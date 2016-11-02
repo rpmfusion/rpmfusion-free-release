@@ -1,7 +1,7 @@
 [rpmfusion-free]
 name=RPM Fusion for Fedora $releasever - Free
 #baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/$basearch/os/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-$releasever&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
 enabled=0
 metadata_expire=7d
 gpgcheck=1
@@ -10,7 +10,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 [rpmfusion-free-debuginfo]
 name=RPM Fusion for Fedora $releasever - Free - Debug
 #baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/$basearch/debug/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-debug-$releasever&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-debug-$releasever&arch=$basearch
 enabled=0
 metadata_expire=7d
 gpgcheck=1
@@ -19,7 +19,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
 [rpmfusion-free-source]
 name=RPM Fusion for Fedora $releasever - Free - Source
 #baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/source/SRPMS/
-mirrorlist=http://mirrors.rpmfusion.org/mirrorlist?repo=free-fedora-source-$releasever&arch=$basearch
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-source-$releasever&arch=$basearch
 enabled=0
 metadata_expire=7d
 gpgcheck=1
