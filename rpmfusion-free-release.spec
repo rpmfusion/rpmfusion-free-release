@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        25
-Release:        0.7
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -16,32 +16,18 @@ Source4:        rpmfusion-%{repo}-rawhide.repo
 Source23:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-23-primary
 Source24:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-24-primary
 Source25:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-25-primary
+Source26:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-26-primary
+Source27:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27-primary
 BuildArch:      noarch
 
-Requires:       system-release >= %{version}
+Requires:       system-release(%{version})
+Provides:       rpmfusion-%{repo}-repos(%{version})
 
-
-%if %{repo} == "nonfree"
-Requires:       rpmfusion-free-release >= %{version}
 
 %description
-RPM Fusion repository contains open source and other distributable software for
-Fedora. It is the merger of the Dribble, FreshRPMs and Livna repositories.
+RPM Fusion %{repo} package repository files for yum and dnf
+along with gpg public keys
 
-This package contains the RPM Fusion GPG key as well as Yum package manager
-configuration files for RPM Fusion's "nonfree" repository, which holds
-software that is not considered as Open Source Software according to the
-Fedora packaging guidelines. 
-%else
-%description
-RPM Fusion repository contains open source and other distributable software for
-Fedora. It is the merger of the Dribble, FreshRPMs and Livna repositories.
-
-This package contains the RPM Fusion GPG key as well as Yum package manager
-configuration files for RPM Fusion's "free" repository, which holds only
-software that is considered as Open Source Software according to the Fedora
-packaging guidelines. 
-%endif
 
 %prep
 echo "Nothing to prep"
@@ -70,10 +56,12 @@ ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 ln -s $(basename %{SOURCE23}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-23
 ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-24
 ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-25
+ln -s $(basename %{SOURCE26}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-26
+ln -s $(basename %{SOURCE27}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27
 
 # Links for the keys
-ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE26}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE27}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -86,6 +74,12 @@ ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Fri Nov 18 2016 Nicolas Chauvet <kwizart@gmail.com> - 25-1
+- Update to final f25
+- Clean-up Description
+- Improve Requires/Provides
+- Drop dependency on free from nonfree
+
 * Wed Nov 02 2016 Nicolas Chauvet <kwizart@gmail.com> - 25-0.7
 - Add metalink over https
 
