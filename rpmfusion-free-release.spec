@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        25
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -47,6 +47,8 @@ install -d -m755 \
     %{SOURCE23} \
     %{SOURCE24} \
     %{SOURCE25} \
+    %{SOURCE26} \
+    %{SOURCE27} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
@@ -74,6 +76,9 @@ ln -s $(basename %{SOURCE27}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
+* Sun Nov 27 2016 Nicolas Chauvet <kwizart@gmail.com> - 25-2
+- Add missing f26/f27 keys
+
 * Fri Nov 18 2016 Nicolas Chauvet <kwizart@gmail.com> - 25-1
 - Update to final f25
 - Clean-up Description
