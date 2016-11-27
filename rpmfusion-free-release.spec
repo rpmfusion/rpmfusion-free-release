@@ -16,6 +16,7 @@ Source4:        rpmfusion-%{repo}-rawhide.repo
 Source23:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-23-primary
 Source24:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-24-primary
 Source25:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-25-primary
+Source26:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-26-primary
 BuildArch:      noarch
 
 Requires:       system-release >= %{version}
@@ -61,6 +62,7 @@ install -d -m755 \
     %{SOURCE23} \
     %{SOURCE24} \
     %{SOURCE25} \
+    %{SOURCE26} \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
@@ -70,10 +72,11 @@ ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-
 ln -s $(basename %{SOURCE23}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-23
 ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-24
 ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-25
+ln -s $(basename %{SOURCE26}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-26
 
 # Links for the keys
-ln -s $(basename %{SOURCE24}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE25}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE26}) $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
