@@ -3,8 +3,8 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{repo}-release
-Version:        26
-Release:        0.4
+Version:        27
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -90,6 +90,9 @@ ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-rawhide.repo
 
 %changelog
+* Wed Mar 08 2017 Orion Poplawski <orion@cora.nwra.com> - 27-0.1
+- Bump for f27
+
 * Fri Nov 18 2016 Nicolas Chauvet <kwizart@gmail.com> - 26-0.4
 - Add f26/f27 keys
 - Remove f23/f24 keys
