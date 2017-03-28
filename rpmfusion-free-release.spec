@@ -106,7 +106,7 @@ ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 - Mark gpg keys as %%config
 
 * Wed Nov 02 2016 Nicolas Chauvet <kwizart@gmail.com> - 26-0.3
-- Add metalinks over https
+- Add metalink over https
 
 * Wed Aug 24 2016 Sérgio Basto <sergio@serjux.com> - 26-0.2
 - Fix current symlink and f25 symlink
