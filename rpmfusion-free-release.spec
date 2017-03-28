@@ -3,8 +3,8 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{repo}-release
-Version:        26
-Release:        0.5
+Version:        27
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -90,6 +90,9 @@ ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-rawhide.repo
 
 %changelog
+* Tue Mar 28 2017 Nicolas Chauvet <kwizart@gmail.com> - 27-0.1
+- Bump for 27
+
 * Tue Mar 28 2017 Nicolas Chauvet <kwizart@gmail.com> - 26-0.5
 - Add Zypper compatibility, patch by Neal Gompa - rfbz#4481
 
