@@ -4,6 +4,7 @@ name=RPM Fusion for Fedora $releasever - Free
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-$releasever&arch=$basearch
 enabled=0
 metadata_expire=14d
+skip_if_unavailable=1
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=1
@@ -15,6 +16,7 @@ name=RPM Fusion for Fedora $releasever - Free - Debug
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-debug-$releasever&arch=$basearch
 enabled=0
 metadata_expire=7d
+skip_if_unavailable=1
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=1
@@ -26,6 +28,7 @@ name=RPM Fusion for Fedora $releasever - Free - Source
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-source-$releasever&arch=$basearch
 enabled=0
 metadata_expire=7d
+skip_if_unavailable=1
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=1
