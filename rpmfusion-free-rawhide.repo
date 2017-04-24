@@ -3,7 +3,10 @@ name=RPM Fusion for Fedora Rawhide - Free
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/$basearch/os/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$basearch
 enabled=1
-gpgcheck=0
+skip_if_unavailable=1
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
 [rpmfusion-free-rawhide-debuginfo]
@@ -11,9 +14,10 @@ name=RPM Fusion for Fedora Rawhide - Free - Debug
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/$basearch/os/debug/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-debug&arch=$basearch
 enabled=0
+skip_if_unavailable=1
 type=rpm-md
 gpgcheck=1
-repo_gpgcheck=0
+repo_gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
 [rpmfusion-free-rawhide-source]
@@ -21,8 +25,9 @@ name=RPM Fusion for Fedora Rawhide - Free - Source
 #baseurl=http://download1.rpmfusion.org/free/fedora/development/source/SRPMS/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide-source&arch=$basearch
 enabled=0
+skip_if_unavailable=1
 type=rpm-md
 gpgcheck=1
-repo_gpgcheck=0
+repo_gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
