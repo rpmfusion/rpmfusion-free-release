@@ -16,7 +16,7 @@ Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
 Source26:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-26-primary
 Source27:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27-primary
-Source25:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28-primary
+Source28:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28-primary
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
