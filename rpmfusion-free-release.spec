@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        27
-Release:        0.4
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -14,9 +14,9 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
-Source26:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-26-primary
 Source27:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27-primary
 Source28:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28-primary
+Source29:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29-primary
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
@@ -56,22 +56,22 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE26} \
     %{SOURCE27} \
     %{SOURCE28} \
+    %{SOURCE29} \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
-ln -s $(basename %{SOURCE26}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
+ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE26}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-26
 ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27
 ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28
+ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29
 
 # Links for the keys
-ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -90,6 +90,9 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-rawhide.repo
 
 %changelog
+* Mon Nov 13 2017 Nicolas Chauvet <kwizart@gmail.com> - 27-1
+- Update to f27 Final
+
 * Thu Sep 07 2017 Leigh Scott <leigh123linux@googlemail.com> - 27-0.4
 - Branch layout
 
