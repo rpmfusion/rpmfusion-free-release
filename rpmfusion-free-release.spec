@@ -1,10 +1,10 @@
 %global repo free
 #global repo nonfree
-%global israwhide 1
+#global israwhide 1
 
 Name:           rpmfusion-%{repo}-release
 Version:        28
-Release:        0.3
+Release:        0.4
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -90,6 +90,9 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-rawhide.repo
 
 %changelog
+* Mon Mar 05 2018 Nicolas Chauvet <kwizart@gmail.com> - 28-0.4
+- Switch to branch layout
+
 * Mon Nov 13 2017 Nicolas Chauvet <kwizart@gmail.com> - 28-0.3
 - Add f29 key
 - Remove f26 key
