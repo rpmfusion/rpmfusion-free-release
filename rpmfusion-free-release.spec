@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        26
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -108,6 +108,9 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Mon Mar 19 2018 Xavier Bachelot <xavier@bachelot.org> - 26-2
+- Create sub-package for tainted repo.
+
 * Fri Jul 07 2017 Nicolas Chauvet <kwizart@gmail.com> - 26-1
 - Update to Final
 
