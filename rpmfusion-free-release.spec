@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        29
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -107,6 +107,9 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Mon Mar 19 2018 Xavier Bachelot <xavier@bachelot.org> - 29-0.2
+- Create sub-package for tainted repo.
+
 * Mon Mar 05 2018 Nicolas Chauvet <kwizart@gmail.com> - 29-0.1
 - Bump to 29
 
