@@ -45,6 +45,8 @@ This package provides the RPM Fusion rawhide %{repo} repo definitions.
 %package tainted
 Summary:        RPM Fusion %{repo} Tainted repo definition
 Requires:       %{name} = %{version}-%{release}
+Obsoletes:      livna-release < 1:1-2
+Provides:       livna-release = 1:1-2
 
 %description tainted
 This package provides the RPM Fusion %{repo} Tainted repo definitions.
