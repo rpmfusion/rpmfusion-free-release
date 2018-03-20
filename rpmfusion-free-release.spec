@@ -14,6 +14,7 @@ Source1:        rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
+Source5:        rpmfusion-%{repo}-tainted.repo
 Source27:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27-primary
 Source28:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28-primary
 Source29:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29-primary
@@ -40,6 +41,13 @@ Requires:       %{name} = %{version}-%{release}
 %description rawhide
 This package provides the RPM Fusion rawhide %{repo} repo definitions.
 %endif
+
+%package tainted
+Summary:        RPM Fusion %{repo} Tainted repo definition
+Requires:       %{name} = %{version}-%{release}
+
+%description tainted
+This package provides the RPM Fusion %{repo} Tainted repo definitions.
 
 %prep
 echo "Nothing to prep"
@@ -75,7 +83,12 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 
 
 # Yum .repo files
-%{__install} -p -m644 %{SOURCE1} %{SOURCE2} %{SOURCE3} %{SOURCE4} \
+%{__install} -p -m644 \
+    %{SOURCE1} \
+    %{SOURCE2} \
+    %{SOURCE3} \
+    %{SOURCE4} \
+    %{SOURCE5} \
     %{buildroot}%{_sysconfdir}/yum.repos.d
 
 
@@ -88,6 +101,9 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %files rawhide
 %endif
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-rawhide.repo
+
+%files tainted
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
 * Mon Mar 05 2018 Nicolas Chauvet <kwizart@gmail.com> - 28-0.4
