@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        7
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -83,6 +83,9 @@ install -d -m755 \
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Mon Mar 19 2018 Xavier Bachelot <xavier@bachelot.org> - 7-2
+- Create sub-package for tainted repo.
+
 * Thu Sep 15 2016 Nicolas Chauvet <kwizart@gmail.com> - 7-1
 - Release for EL-7
 
