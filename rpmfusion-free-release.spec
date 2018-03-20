@@ -14,6 +14,7 @@ Source0:        RPM-GPG-KEY-rpmfusion-%{repo}-el-6
 # Source1:      rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
+Source5:        rpmfusion-%{repo}-tainted.repo
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -45,6 +46,13 @@ software that is considered as Open Source Software according to the Fedora
 packaging guidelines. 
 %endif
 
+%package tainted
+Summary:        RPM Fusion %{repo} Tainted repo definition
+Requires:       %{name} = %{version}-%{release}
+
+%description tainted
+This package provides the RPM Fusion %{repo} Tainted repo definitions.
+
 %prep
 echo "Nothing to prep"
 
@@ -64,8 +72,11 @@ install -d -m755 \
     $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg
 
 # Yum .repo files
-%{__install} -p -m644 %{SOURCE2} %{SOURCE3} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
+%{__install} -p -m644 \
+    %{SOURCE2} \
+    %{SOURCE3} \
+    %{SOURCE5} \
+    %{buildroot}%{_sysconfdir}/yum.repos.d
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_sysconfdir}/pki/rpm-gpg/*
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
+
+%files tainted
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
 * Tue Jun 19 2012 Nicolas Chauvet <kwizart@gmail.com> - 6-1
