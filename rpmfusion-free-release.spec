@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        29
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -14,9 +14,9 @@ Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
 Source5:        rpmfusion-%{repo}-tainted.repo
-Source27:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27-primary
 Source28:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28-primary
 Source29:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29-primary
+Source30:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-30-primary
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
@@ -74,13 +74,13 @@ install -d -m755 \
 ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27
 ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28
 ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29
+ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-30
 
 # Links for the keys
-ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -107,6 +107,11 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Mon Apr 16 2018 Nicolas Chauvet <kwizart@gmail.com> - 29-0.3
+- Enable metadata
+- Remove f27 key
+- Add f30 key
+
 * Mon Mar 19 2018 Xavier Bachelot <xavier@bachelot.org> - 29-0.2
 - Create sub-package for tainted repo.
 
