@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        28
-Release:        0.5
+Release:        0.6
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -15,9 +15,9 @@ Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
 Source5:        rpmfusion-%{repo}-tainted.repo
-Source27:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27-primary
 Source28:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28-primary
 Source29:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29-primary
+Source30:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-30-primary
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
@@ -45,8 +45,10 @@ This package provides the RPM Fusion rawhide %{repo} repo definitions.
 %package tainted
 Summary:        RPM Fusion %{repo} Tainted repo definition
 Requires:       %{name} = %{version}-%{release}
+%if %{repo} == "free"
 Obsoletes:      livna-release < 1:1-2
 Provides:       livna-release = 1:1-2
+%endif
 
 %description tainted
 This package provides the RPM Fusion %{repo} Tainted repo definitions.
@@ -66,22 +68,22 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE27} \
     %{SOURCE28} \
     %{SOURCE29} \
+    %{SOURCE30} \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
 ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-27
 ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28
 ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29
+ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-30
 
 # Links for the keys
-ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -108,6 +110,10 @@ ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Mon Apr 16 2018 Nicolas Chauvet <kwizart@gmail.com> - 28-0.6
+- Updates keys
+- Enable metadata
+
 * Mon Mar 19 2018 Xavier Bachelot <xavier@bachelot.org> - 28-0.5
 - Create sub-package for tainted repo.
 
