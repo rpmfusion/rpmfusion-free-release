@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        28
-Release:        0.6
+Release:        0.7
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -74,7 +74,7 @@ install -d -m755 \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # compatibility symlink for easy transition to F11
-ln -s $(basename %{SOURCE27}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
+ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora
 
 # Avoid using basearch in name for the key. Introduced in F18
 ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28
@@ -110,6 +110,9 @@ ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Tue Apr 17 2018 Leigh Scott <leigh123linux@googlemail.com> - 28-0.7
+- Fix compatibility symlink
+
 * Mon Apr 16 2018 Nicolas Chauvet <kwizart@gmail.com> - 28-0.6
 - Updates keys
 - Enable metadata
