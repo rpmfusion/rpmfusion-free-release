@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        28
-Release:        0.7
+Release:        1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -110,6 +110,9 @@ ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Tue Apr 24 2018 Nicolas Chauvet <kwizart@gmail.com> - 28-1
+- Release for f28
+
 * Tue Apr 17 2018 Leigh Scott <leigh123linux@googlemail.com> - 28-0.7
 - Fix compatibility symlink
 
