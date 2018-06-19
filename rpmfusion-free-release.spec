@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        7
-Release:        2
+Release:        3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -77,12 +77,15 @@ install -d -m755 \
 
 %files
 %{_sysconfdir}/pki/rpm-gpg/*
-%config(noreplace) %{_sysconfdir}/yum.repos.d/*
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-updates*.repo
 
 %files tainted
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Tue Jun 19 2018 Xavier Bachelot <xavier@bachelot.org> - 7-3
+- Only include tainted repo definition in tainted sub-package.
+
 * Mon Mar 19 2018 Xavier Bachelot <xavier@bachelot.org> - 7-2
 - Create sub-package for tainted repo.
 
