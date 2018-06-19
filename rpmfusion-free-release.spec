@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        7
-Release:        3
+Release:        4
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 Group:          System Environment/Base
@@ -83,6 +83,9 @@ install -d -m755 \
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Tue Jun 19 2018 Xavier Bachelot <xavier@bachelot.org> - 7-4
+- Don't use $releasever, it's not expanding as expected on RHEL.
+
 * Tue Jun 19 2018 Xavier Bachelot <xavier@bachelot.org> - 7-3
 - Only include tainted repo definition in tainted sub-package.
 

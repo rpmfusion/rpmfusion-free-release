@@ -1,33 +1,33 @@
 [rpmfusion-free-tainted]
-name=RPM Fusion for EL $releasever - Free tainted
-#baseurl=http://download1.rpmfusion.org/free/el/tainted/$releasever/$basearch/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-$releasever&arch=$basearch
+name=RPM Fusion for EL 7 - Free tainted
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/7/$basearch/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-7&arch=$basearch
 enabled=1
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-$releasever
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-7
 
 [rpmfusion-free-tainted-debuginfo]
-name=RPM Fusion for EL $releasever - Free tainted - Debug
-#baseurl=http://download1.rpmfusion.org/free/el/tainted/$releasever/$basearch/debug/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-debug-$releasever&arch=$basearch
+name=RPM Fusion for EL 7 - Free tainted - Debug
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/7/$basearch/debug/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-debug-7&arch=$basearch
 enabled=0
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-$releasever
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-7
 
 [rpmfusion-free-tainted-source]
-name=RPM Fusion for EL $releasever - Free tainted - Source
-#baseurl=http://download1.rpmfusion.org/free/el/tainted/$releasever/SRPMS/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-source-$releasever&arch=$basearch
+name=RPM Fusion for EL 7 - Free tainted - Source
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/7/SRPMS/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-source-7&arch=$basearch
 enabled=0
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-$releasever
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-7
 
