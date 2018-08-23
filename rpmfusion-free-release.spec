@@ -3,8 +3,8 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{repo}-release
-Version:        29
-Release:        0.4
+Version:        30
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -106,6 +106,9 @@ ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Thu Aug 23 2018 Leigh Scott <leigh123linux@googlemail.com> - 30-0.1
+- Bump for 30
+
 * Tue Apr 17 2018 Leigh Scott <leigh123linux@googlemail.com> - 29-0.4
 - Remove compatibility symlink
 
