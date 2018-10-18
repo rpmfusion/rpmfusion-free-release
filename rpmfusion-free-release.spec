@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        30
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -107,6 +107,10 @@ ln -s $(basename %{SOURCE31}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Thu Oct 18 2018 Leigh Scott <leigh123linux@googlemail.com> - 30-0.2
+- Remove f28 key
+- Add f31 key
+
 * Thu Aug 23 2018 Leigh Scott <leigh123linux@googlemail.com> - 30-0.1
 - Bump for 30
 
