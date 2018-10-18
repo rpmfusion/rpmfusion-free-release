@@ -14,9 +14,9 @@ Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
 Source5:        rpmfusion-%{repo}-tainted.repo
-Source28:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28-primary
 Source29:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29-primary
 Source30:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-30-primary
+Source31:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-31-primary
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
@@ -67,19 +67,20 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE28} \
     %{SOURCE29} \
     %{SOURCE30} \
+    %{SOURCE31} \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE28}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-28
 ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29
 ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-30
+ln -s $(basename %{SOURCE31}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-31
 
 # Links for the keys
-ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE29}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-29
+ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE31}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
 # Yum .repo files
