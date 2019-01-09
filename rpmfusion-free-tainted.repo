@@ -1,33 +1,33 @@
 [rpmfusion-free-tainted]
-name=RPM Fusion for Fedora $releasever - Free tainted
-#baseurl=http://download1.rpmfusion.org/free/fedora/tainted/$releasever/$basearch/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-tainted-$releasever&arch=$basearch
+name=RPM Fusion for EL 8 - Free tainted
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/8/$basearch/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-8&arch=$basearch
 enabled=1
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-8
 
 [rpmfusion-free-tainted-debuginfo]
-name=RPM Fusion for Fedora $releasever - Free tainted - Debug
-#baseurl=http://download1.rpmfusion.org/free/fedora/tainted/$releasever/$basearch/debug/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-tainted-debug-$releasever&arch=$basearch
+name=RPM Fusion for EL 8 - Free tainted - Debug
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/8/$basearch/debug/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-debug-8&arch=$basearch
 enabled=0
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-8
 
 [rpmfusion-free-tainted-source]
-name=RPM Fusion for Fedora $releasever - Free tainted - Source
-#baseurl=http://download1.rpmfusion.org/free/fedora/tainted/$releasever/SRPMS/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-tainted-source-$releasever&arch=$basearch
+name=RPM Fusion for EL 8 - Free tainted - Source
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/8/SRPMS/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-source-8&arch=$basearch
 enabled=0
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-$releasever
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-8
 
