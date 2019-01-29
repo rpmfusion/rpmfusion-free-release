@@ -9,8 +9,6 @@ Summary:        RPM Fusion (%{repo}) Repository Configuration
 License:        BSD
 URL:            http://rpmfusion.org
 Source0:        RPM-GPG-KEY-rpmfusion-%{repo}-el-8
-# not needed for now, but maybe we'll do that later:
-# Source1:      rpmfusion-%{repo}.repo
 Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source5:        rpmfusion-%{repo}-tainted.repo
