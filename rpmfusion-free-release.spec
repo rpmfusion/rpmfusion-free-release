@@ -78,7 +78,6 @@ ln -s $(basename %{SOURCE31}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-32
 
 # Links for the keys
-ln -s $(basename %{SOURCE30}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-30
 ln -s $(basename %{SOURCE31}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
 ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
