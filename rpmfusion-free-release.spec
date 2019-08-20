@@ -3,8 +3,8 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{repo}-release
-Version:        31
-Release:        0.2
+Version:        32
+Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -106,6 +106,9 @@ ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Tue Aug 20 2019 Leigh Scott <leigh123linux@gmail.com> - 32-0.1
+- Bump for 32
+
 * Mon Apr 08 2019 Leigh Scott <leigh123linux@googlemail.com> - 31-0.2
 - Remove f29 key
 - Add f32 key
