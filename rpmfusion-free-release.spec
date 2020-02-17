@@ -3,7 +3,7 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{repo}-release
-Version:        32
+Version:        33
 Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -106,7 +106,7 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
-* Mon Feb 17 2020 Leigh Scott <leigh123linux@gmail.com> - 32-0.1
+* Mon Feb 17 2020 Leigh Scott <leigh123linux@gmail.com> - 33-0.1
 - Bump for 33
 
 * Mon Oct 21 2019 Leigh Scott <leigh123linux@gmail.com> - 32-0.2
