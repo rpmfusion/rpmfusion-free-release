@@ -1,10 +1,10 @@
 %global repo free
 #global repo nonfree
-%global israwhide 1
+%global israwhide 0
 
 Name:           rpmfusion-%{repo}-release
 Version:        32
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -106,6 +106,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Mon Feb 17 2020 Leigh Scott <leigh123linux@gmail.com> - 32-0.3
+- Switch to branch layout
+
 * Mon Oct 21 2019 Leigh Scott <leigh123linux@gmail.com> - 32-0.2
 - Remove f30 key
 - Add f33 key
