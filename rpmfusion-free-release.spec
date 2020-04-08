@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{repo}-release
 Version:        30
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -106,6 +106,9 @@ ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Wed Apr 08 2020 Leigh Scott <leigh123linux@gmail.com> - 30-2
+- Fix rpmfusion-free-fedora-32 key (rfbz#5591)
+
 * Mon Apr 08 2019 Leigh Scott <leigh123linux@googlemail.com> - 30-1
 - Release for f30
 
