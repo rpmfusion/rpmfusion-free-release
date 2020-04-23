@@ -14,7 +14,6 @@ Source2:        rpmfusion-%{repo}-updates.repo
 Source3:        rpmfusion-%{repo}-updates-testing.repo
 Source4:        rpmfusion-%{repo}-rawhide.repo
 Source5:        rpmfusion-%{repo}-tainted.repo
-Source31:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-31-primary
 Source32:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-32-primary
 Source33:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-2020
 BuildArch:      noarch
@@ -67,18 +66,17 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE31} \
     %{SOURCE32} \
     %{SOURCE33} \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE31}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-31
 ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-32
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-33
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-34
 
 # Links for the keys
-ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
 
 
