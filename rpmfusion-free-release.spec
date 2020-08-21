@@ -1,25 +1,25 @@
-%global repo free
+%global _repo free
 #global repo nonfree
 %global israwhide 0
 
-Name:           rpmfusion-%{repo}-release
+Name:           rpmfusion-%{_repo}-release
 Version:        33
 Release:        0.2
-Summary:        RPM Fusion (%{repo}) Repository Configuration
+Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
 URL:            http://rpmfusion.org
-Source1:        rpmfusion-%{repo}.repo
-Source2:        rpmfusion-%{repo}-updates.repo
-Source3:        rpmfusion-%{repo}-updates-testing.repo
-Source4:        rpmfusion-%{repo}-rawhide.repo
-Source5:        rpmfusion-%{repo}-tainted.repo
-Source32:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-32-primary
-Source33:       RPM-GPG-KEY-rpmfusion-%{repo}-fedora-2020
+Source1:        rpmfusion-%{_repo}.repo
+Source2:        rpmfusion-%{_repo}-updates.repo
+Source3:        rpmfusion-%{_repo}-updates-testing.repo
+Source4:        rpmfusion-%{_repo}-rawhide.repo
+Source5:        rpmfusion-%{_repo}-tainted.repo
+Source32:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-32-primary
+Source33:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-2020
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
-Provides:       rpmfusion-%{repo}-repos(%{version})
+Provides:       rpmfusion-%{_repo}-repos(%{version})
 
 %if 0%{?israwhide}
 Obsoletes:      %{name}-rawhide < %{version}-%{release}
@@ -27,29 +27,29 @@ Provides:       %{name}-rawhide = %{version}-%{release}
 %endif
 
 %description
-RPM Fusion %{repo} package repository files for yum and dnf
+RPM Fusion %{_repo} package repository files for yum and dnf
 along with gpg public keys
 
 
 %if ! 0%{?israwhide}
 %package rawhide
-Summary:        RPM Fusion Rawhide %{repo} repo definitions
+Summary:        RPM Fusion Rawhide %{_repo} repo definitions
 Requires:       %{name} = %{version}-%{release}
 
 %description rawhide
-This package provides the RPM Fusion rawhide %{repo} repo definitions.
+This package provides the RPM Fusion rawhide %{_repo} repo definitions.
 %endif
 
 %package tainted
-Summary:        RPM Fusion %{repo} Tainted repo definition
+Summary:        RPM Fusion %{_repo} Tainted repo definition
 Requires:       %{name} = %{version}-%{release}
-%if %{repo} == "free"
+%if %{_repo} == "free"
 Obsoletes:      livna-release < 1:1-2
 Provides:       livna-release = 1:1-2
 %endif
 
 %description tainted
-This package provides the RPM Fusion %{repo} Tainted repo definitions.
+This package provides the RPM Fusion %{_repo} Tainted repo definitions.
 
 %prep
 echo "Nothing to prep"
@@ -71,13 +71,13 @@ install -d -m755 \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-32
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-33
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-34
+ln -s $(basename %{SOURCE32}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-32
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-33
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-34
 
 # Links for the keys
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-latest
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{repo}-fedora-rawhide
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-latest
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -92,16 +92,16 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 
 %files
 %config %{_sysconfdir}/pki/rpm-gpg/*
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}.repo
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-updates*.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-updates*.repo
 
 %if ! 0%{?israwhide}
 %files rawhide
 %endif
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-rawhide.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-rawhide.repo
 
 %files tainted
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
 * Fri Aug 21 2020 Leigh Scott <leigh123linux@gmail.com> - 33-0.2
