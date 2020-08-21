@@ -1,10 +1,10 @@
 %global repo free
 #global repo nonfree
-%global israwhide 1
+%global israwhide 0
 
 Name:           rpmfusion-%{repo}-release
 Version:        33
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
@@ -104,6 +104,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Fri Aug 21 2020 Leigh Scott <leigh123linux@gmail.com> - 33-0.2
+- Switch to branch layout
+
 * Mon Feb 17 2020 Leigh Scott <leigh123linux@gmail.com> - 33-0.1
 - Bump for 33
 
