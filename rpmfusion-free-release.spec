@@ -1,5 +1,5 @@
 %global _repo free
-#global repo nonfree
+#global _repo nonfree
 %global israwhide 0
 
 Name:           rpmfusion-%{_repo}-release
@@ -43,10 +43,6 @@ This package provides the RPM Fusion rawhide %{_repo} repo definitions.
 %package tainted
 Summary:        RPM Fusion %{_repo} Tainted repo definition
 Requires:       %{name} = %{version}-%{release}
-%if %{_repo} == "free"
-Obsoletes:      livna-release < 1:1-2
-Provides:       livna-release = 1:1-2
-%endif
 
 %description tainted
 This package provides the RPM Fusion %{_repo} Tainted repo definitions.
