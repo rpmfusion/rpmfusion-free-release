@@ -3,7 +3,7 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{repo}-release
-Version:        33
+Version:        34
 Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
@@ -104,6 +104,10 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
 
 %changelog
+* Fri Aug 21 2020 Leigh Scott <leigh123linux@gmail.com> - 34-0.1
+- Bump for 34
+- Remove f31 key
+
 * Mon Feb 17 2020 Leigh Scott <leigh123linux@gmail.com> - 33-0.1
 - Bump for 33
 
