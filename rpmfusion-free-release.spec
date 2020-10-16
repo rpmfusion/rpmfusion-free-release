@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        33
-Release:        0.2
+Release:        1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -100,6 +100,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Fri Oct 16 2020 Leigh Scott <leigh123linux@gmail.com> - 33-1
+- Release for f33
+
 * Fri Aug 21 2020 Leigh Scott <leigh123linux@gmail.com> - 33-0.2
 - Switch to branch layout
 
