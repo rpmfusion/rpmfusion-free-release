@@ -61,7 +61,6 @@ install -d -m755 \
 
 # GPG Key
 %{__install} -Dp -m644 \
-    %{SOURCE32} \
     %{SOURCE33} \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
