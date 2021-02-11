@@ -1,10 +1,10 @@
 %global _repo free
 #global _repo nonfree
-%global israwhide 1
+%global israwhide 0
 
 Name:           rpmfusion-%{_repo}-release
 Version:        34
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -98,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Thu Feb 11 2021 Leigh Scott <leigh123linux@gmail.com> - 34-0.2
+- Switch to branch layout
+
 * Fri Aug 21 2020 Leigh Scott <leigh123linux@gmail.com> - 34-0.1
 - Bump for 34
 - Remove f31 key

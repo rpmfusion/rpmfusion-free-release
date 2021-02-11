@@ -2,7 +2,7 @@
 name=RPM Fusion for Fedora $releasever - Free - Test Updates
 #baseurl=http://download1.rpmfusion.org/free/fedora/updates/testing/$releasever/$basearch/
 metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-updates-testing-$releasever&arch=$basearch
-enabled=0
+enabled1
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
