@@ -1,24 +1,24 @@
-%global repo free
-#global repo nonfree
+%global _repo free
+#global _repo nonfree
 
-Name:           rpmfusion-%{repo}-release
+Name:           rpmfusion-%{_repo}-release
 Version:        8
 Release:        0.1
 Summary:        RPM Fusion (%{repo}) Repository Configuration
 
 License:        BSD
 URL:            http://rpmfusion.org
-Source0:        RPM-GPG-KEY-rpmfusion-%{repo}-el-8
-Source2:        rpmfusion-%{repo}-updates.repo
-Source3:        rpmfusion-%{repo}-updates-testing.repo
-Source5:        rpmfusion-%{repo}-tainted.repo
+Source0:        RPM-GPG-KEY-rpmfusion-%{_repo}-el-8
+Source2:        rpmfusion-%{_repo}-updates.repo
+Source3:        rpmfusion-%{_repo}-updates-testing.repo
+Source5:        rpmfusion-%{_repo}-tainted.repo
 BuildArch:      noarch
 
 Requires:       redhat-release >= %{version}
 Requires:       epel-release >= %{version}
 
 
-%if %{repo} == "nonfree"
+%if "%{_repo}" == "nonfree"
 Requires:       rpmfusion-free-release >= %{version}
 
 %description
@@ -41,15 +41,15 @@ packaging guidelines.
 %endif
 
 %package tainted
-Summary:        RPM Fusion %{repo} Tainted repo definition
+Summary:        RPM Fusion %{_repo} Tainted repo definition
 Requires:       %{name} = %{version}-%{release}
-%if %{repo} == "free"
+%if "%{_repo}" == "free"
 Obsoletes:      livna-release < 1:1-2
 Provides:       livna-release = 1:1-2
 %endif
 
 %description tainted
-This package provides the RPM Fusion %{repo} Tainted repo definitions.
+This package provides the RPM Fusion %{_repo} Tainted repo definitions.
 
 %prep
 echo "Nothing to prep"
@@ -76,10 +76,10 @@ install -d -m755 \
 
 %files
 %config %{_sysconfdir}/pki/rpm-gpg/*
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-updates*.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-updates*.repo
 
 %files tainted
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{repo}-tainted.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
 * Wed Jan 09 2019 Xavier Bachelot <xavier@bachelot.org> - 8-0.1
