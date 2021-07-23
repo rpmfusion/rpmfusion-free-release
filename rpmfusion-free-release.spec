@@ -3,8 +3,8 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        8
-Release:        0.1
-Summary:        RPM Fusion (%{repo}) Repository Configuration
+Release:        0.2
+Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
 URL:            http://rpmfusion.org
@@ -12,6 +12,7 @@ Source0:        RPM-GPG-KEY-rpmfusion-%{_repo}-el-8
 Source2:        rpmfusion-%{_repo}-updates.repo
 Source3:        rpmfusion-%{_repo}-updates-testing.repo
 Source5:        rpmfusion-%{_repo}-tainted.repo
+Source6:        rpmfusion-%{_repo}-next.repo
 BuildArch:      noarch
 
 Requires:       redhat-release >= %{version}
@@ -51,6 +52,14 @@ Provides:       livna-release = 1:1-2
 %description tainted
 This package provides the RPM Fusion %{_repo} Tainted repo definitions.
 
+%package next
+Summary:        RPM Fusion %{_repo} Next repo definition
+Requires:       %{name} = %{version}-%{release}
+Recommends:     (%{name}-next if centos-stream-release)
+
+%description next
+This package provides the RPM Fusion %{_repo} Next repo definitions.
+
 %prep
 echo "Nothing to prep"
 
@@ -72,6 +81,7 @@ install -d -m755 \
     %{SOURCE2} \
     %{SOURCE3} \
     %{SOURCE5} \
+    %{SOURCE6} \
     %{buildroot}%{_sysconfdir}/yum.repos.d
 
 %files
@@ -81,7 +91,13 @@ install -d -m755 \
 %files tainted
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
+%files next
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-next.repo
+
 %changelog
+* Fri Jul 23 2021 Xavier Bachelot <xavier@bachelot.org> - 8-0.2
+- Create sub-package for next repo
+
 * Wed Jan 09 2019 Xavier Bachelot <xavier@bachelot.org> - 8-0.1
 - Release for EL-8.
 
