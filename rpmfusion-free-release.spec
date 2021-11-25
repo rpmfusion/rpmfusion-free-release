@@ -3,7 +3,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        8
-Release:        0.2
+Release:        1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -97,8 +97,8 @@ install -d -m755 \
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-next*.repo
 
 %changelog
-* Fri Jul 23 2021 Xavier Bachelot <xavier@bachelot.org> - 8-0.2
-- Create sub-package for next repo
+* Thu Nov 25 2021 Xavier Bachelot <xavier@bachelot.org> - 8-1
+- Create sub-package for next repos
 
 * Wed Jan 09 2019 Xavier Bachelot <xavier@bachelot.org> - 8-0.1
 - Release for EL-8.
