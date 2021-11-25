@@ -1,0 +1,33 @@
+[rpmfusion-free-next-testing]
+name=RPM Fusion for EL 8 - Free - Next Test Updates
+#baseurl=http://download1.rpmfusion.org/free/el/testing/next/8/$basearch/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-next-testing-8&arch=$basearch
+enabled=0
+metadata_expire=6h
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-8
+
+[rpmfusion-free-next-testing-debuginfo]
+name=RPM Fusion for EL 8 - Free - Next Test Debug
+#baseurl=http://download1.rpmfusion.org/free/el/testing/next/8/$basearch/debug/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-next-testing-debug-8&arch=$basearch
+enabled=0
+metadata_expire=6h
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-8
+
+[rpmfusion-free-next-testing-source]
+name=RPM Fusion for EL 8 - Free - Next Test Source
+#baseurl=http://download1.rpmfusion.org/free/el/testing/next/8/SRPMS/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-next-testing-source-8&arch=$basearch
+enabled=0
+metadata_expire=6h
+type=rpm-md
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-8
+

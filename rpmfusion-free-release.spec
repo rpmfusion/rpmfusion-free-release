@@ -13,6 +13,7 @@ Source2:        rpmfusion-%{_repo}-updates.repo
 Source3:        rpmfusion-%{_repo}-updates-testing.repo
 Source5:        rpmfusion-%{_repo}-tainted.repo
 Source6:        rpmfusion-%{_repo}-next.repo
+Source7:        rpmfusion-%{_repo}-next-testing.repo
 BuildArch:      noarch
 
 Requires:       redhat-release >= %{version}
@@ -82,6 +83,7 @@ install -d -m755 \
     %{SOURCE3} \
     %{SOURCE5} \
     %{SOURCE6} \
+    %{SOURCE7} \
     %{buildroot}%{_sysconfdir}/yum.repos.d
 
 %files
@@ -92,7 +94,7 @@ install -d -m755 \
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %files next
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-next.repo
+%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-next*.repo
 
 %changelog
 * Fri Jul 23 2021 Xavier Bachelot <xavier@bachelot.org> - 8-0.2
