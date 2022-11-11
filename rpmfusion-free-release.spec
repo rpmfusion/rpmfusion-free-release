@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        37
-Release:        0.2
+Release:        1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -98,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Fri Nov 11 2022 Leigh Scott <leigh123linux@gmail.com> - 37-1
+- Release for f37
+
 * Wed Aug 10 2022 Leigh Scott <leigh123linux@gmail.com> - 37-0.2
 - Switch to branch layout
 
