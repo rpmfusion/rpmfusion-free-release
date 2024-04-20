@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        40
-Release:        0.2
+Release:        1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -65,9 +65,9 @@ install -d -m755 \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-39
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-40
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-41
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-42
 
 # Links for the keys
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-latest
@@ -98,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Sat Apr 20 2024 Leigh Scott <leigh123linux@gmail.com> - 40-1
+- Release for f40
+
 * Wed Feb 14 2024 Leigh Scott <leigh123linux@gmail.com> - 40-0.2
 - Switch to branch layout
 
