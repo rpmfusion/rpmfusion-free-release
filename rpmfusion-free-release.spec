@@ -3,8 +3,8 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{_repo}-release
-Version:        41
-Release:        0.1
+Version:        42
+Release:        0.1%{?dist}
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -65,9 +65,9 @@ install -d -m755 \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-40
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-41
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-42
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-43
 
 # Links for the keys
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-latest
@@ -98,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Thu Aug 15 2024 Leigh Scott <leigh123linux@gmail.com> - 42-0.1
+- Bump for 42
+
 * Wed Feb 14 2024 Leigh Scott <leigh123linux@gmail.com> - 41-0.1
 - Bump for 41
 
