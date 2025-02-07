@@ -1,30 +1,30 @@
 [rpmfusion-free-updates-testing]
-name=RPM Fusion for EL 9 - Free - Test Updates
-#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/9/$basearch/
-metalink=http://mirrors.rpmfusion.org/metalink?repo=free-el-updates-testing-9&arch=$basearch
+name=RPM Fusion for EL 10 - Free - Test Updates
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/10/$basearch/
+metalink=http://mirrors.rpmfusion.org/metalink?repo=free-el-updates-testing-10&arch=$basearch
 enabled=0
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-10
 
 [rpmfusion-free-updates-testing-debuginfo]
-name=RPM Fusion for EL 9 - Free - Test Updates Debug
-#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/9/$basearch/debug/
-metalink=http://mirrors.rpmfusion.org/metalink?repo=free-el-updates-testing-debug-9&arch=$basearch
+name=RPM Fusion for EL 10 - Free - Test Updates Debug
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/10/$basearch/debug/
+metalink=http://mirrors.rpmfusion.org/metalink?repo=free-el-updates-testing-debug-10&arch=$basearch
 enabled=0
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-10
 
 [rpmfusion-free-updates-testing-source]
-name=RPM Fusion for EL 9 - Free - Test Updates Source
-#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/9/SRPMS/
-metalink=http://mirrors.rpmfusion.org/metalink?repo=free-el-updates-testing-source-9&arch=$basearch
+name=RPM Fusion for EL 10 - Free - Test Updates Source
+#baseurl=http://download1.rpmfusion.org/free/el/updates/testing/10/SRPMS/
+metalink=http://mirrors.rpmfusion.org/metalink?repo=free-el-updates-testing-source-10&arch=$basearch
 enabled=0
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-10
 

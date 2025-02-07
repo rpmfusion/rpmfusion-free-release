@@ -1,33 +1,33 @@
 [rpmfusion-free-tainted]
-name=RPM Fusion for EL 9 - Free tainted
-#baseurl=http://download1.rpmfusion.org/free/el/tainted/9/$basearch/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-9&arch=$basearch
+name=RPM Fusion for EL 10 - Free tainted
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/10/$basearch/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-10&arch=$basearch
 enabled=1
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-10
 
 [rpmfusion-free-tainted-debuginfo]
-name=RPM Fusion for EL 9 - Free tainted - Debug
-#baseurl=http://download1.rpmfusion.org/free/el/tainted/9/$basearch/debug/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-debug-9&arch=$basearch
+name=RPM Fusion for EL 10 - Free tainted - Debug
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/10/$basearch/debug/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-debug-10&arch=$basearch
 enabled=0
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-10
 
 [rpmfusion-free-tainted-source]
-name=RPM Fusion for EL 9 - Free tainted - Source
-#baseurl=http://download1.rpmfusion.org/free/el/tainted/9/SRPMS/
-metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-source-9&arch=$basearch
+name=RPM Fusion for EL 10 - Free tainted - Source
+#baseurl=http://download1.rpmfusion.org/free/el/tainted/10/SRPMS/
+metalink=https://mirrors.rpmfusion.org/metalink?repo=free-el-tainted-source-10&arch=$basearch
 enabled=0
 metadata_expire=6h
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-9
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-el-10
 

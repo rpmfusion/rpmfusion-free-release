@@ -2,13 +2,13 @@
 #global _repo nonfree
 
 Name:           rpmfusion-%{_repo}-release
-Version:        9
+Version:        10
 Release:        1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
 URL:            http://rpmfusion.org
-Source0:        RPM-GPG-KEY-rpmfusion-%{_repo}-el-9
+Source0:        RPM-GPG-KEY-rpmfusion-%{_repo}-el-10
 Source2:        rpmfusion-%{_repo}-updates.repo
 Source3:        rpmfusion-%{_repo}-updates-testing.repo
 Source5:        rpmfusion-%{_repo}-tainted.repo
@@ -93,6 +93,9 @@ install -d -m755 \
 #%%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-next*.repo
 
 %changelog
+* Fri Feb 07 2025 Nicolas Chauvet <kwizart@gmail.com> - 10-1
+- Release for EL10
+
 * Fri Mar 11 2022 Xavier Bachelot <xavier@bachelot.org> - 9-1
 - Release for EL-9
 
