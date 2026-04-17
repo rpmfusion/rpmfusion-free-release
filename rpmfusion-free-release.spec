@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        44
-Release:        0.3
+Release:        1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -98,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Fri Apr 17 2026 Sérgio Basto <sergio@serjux.com> - 44-1
+- Release for f44
+
 * Sun Feb 08 2026 Sérgio Basto <sergio@serjux.com> - 44-0.3
 - Bump, because 44-0.2 has already been built
 
