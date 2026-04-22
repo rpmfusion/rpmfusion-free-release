@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        44
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -98,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Wed Apr 22 2026 Nicolas Chauvet <kwizart@gmail.com> - 44-2
+- Disable metadata on rawhide
+
 * Fri Apr 17 2026 Sérgio Basto <sergio@serjux.com> - 44-1
 - Release for f44
 
