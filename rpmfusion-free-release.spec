@@ -3,7 +3,7 @@
 %global israwhide 1
 
 Name:           rpmfusion-%{_repo}-release
-Version:        45
+Version:        46
 Release:        0.1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
@@ -65,10 +65,9 @@ install -d -m755 \
     %{buildroot}%{_sysconfdir}/pki/rpm-gpg
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-43
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-44
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-45
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-46
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-47
 
 # Links for the keys
 ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-latest
@@ -99,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Wed Aug 12 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.1
+- Bump for 46
+
 * Sun Feb 08 2026 Sérgio Basto <sergio@serjux.com> - 45-0.1
 - Bump package rpmfusion-free-release to version 45
 
