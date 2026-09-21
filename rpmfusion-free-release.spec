@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        46
-Release:        0.1
+Release:        0.2
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -56,22 +56,22 @@ echo "Nothing to build"
 
 # Create dirs
 install -d -m755 \
-  %{buildroot}%{_sysconfdir}/pki/rpm-gpg  \
-  %{buildroot}%{_sysconfdir}/yum.repos.d
+  %{buildroot}%{_datadir}/pki/rpm-gpg/  \
+  %{buildroot}%{_datadir}/dnf5/repos.d/
 
 # GPG Key
 %{__install} -Dp -m644 \
     %{SOURCE33} \
-    %{buildroot}%{_sysconfdir}/pki/rpm-gpg
+    %{buildroot}%{_datadir}/pki/rpm-gpg
 
 # Avoid using basearch in name for the key. Introduced in F18
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-45
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-46
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-47
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-45
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-46
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-47
 
 # Links for the keys
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-latest
-ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-rawhide
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-latest
+ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-rawhide
 
 
 # Yum .repo files
@@ -81,23 +81,26 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
     %{SOURCE3} \
     %{SOURCE4} \
     %{SOURCE5} \
-    %{buildroot}%{_sysconfdir}/yum.repos.d
+    %{buildroot}%{_datadir}/dnf5/repos.d/
 
 
 %files
-%config %{_sysconfdir}/pki/rpm-gpg/*
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}.repo
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-updates*.repo
+%{_datadir}/pki/rpm-gpg/*
+%{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}.repo
+%{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-updates*.repo
 
 %if ! 0%{?israwhide}
 %files rawhide
 %endif
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-rawhide.repo
+%{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-rawhide.repo
 
 %files tainted
-%config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
+%{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Mon Sep 21 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.2
+- Move the conf files to /usr/share
+
 * Wed Aug 12 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.1
 - Bump for 46
 
