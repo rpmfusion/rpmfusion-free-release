@@ -6,7 +6,7 @@ enabled=0
 enabled_metadata=1
 type=rpm-md
 gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
+gpgkey=file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
 [rpmfusion-free-rawhide-debuginfo]
 name=RPM Fusion for Fedora Rawhide - Free - Debug
@@ -16,7 +16,7 @@ enabled=0
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
+gpgkey=file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
 [rpmfusion-free-rawhide-source]
 name=RPM Fusion for Fedora Rawhide - Free - Source
@@ -26,5 +26,5 @@ enabled=0
 type=rpm-md
 gpgcheck=1
 repo_gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
+gpgkey=file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
