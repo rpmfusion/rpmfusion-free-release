@@ -20,7 +20,7 @@ BuildArch:      noarch
 
 Requires:       system-release(%{version})
 Provides:       rpmfusion-%{_repo}-repos(%{version})
-Recommends:     %{name}-vendor-change = %{version}-%{release}
+Requires:       /usr/share/dnf5/libdnf.conf.d/
 
 %if 0%{?israwhide}
 Obsoletes:      %{name}-rawhide < %{version}-%{release}
@@ -47,15 +47,6 @@ Requires:       %{name} = %{version}-%{release}
 
 %description tainted
 This package provides the RPM Fusion %{_repo} Tainted repo definitions.
-
-%package vendor-change
-Summary:        DNF5 configuration allowing vendor change for RPM Fusion %{_repo}
-Requires:       /usr/share/dnf5/libdnf.conf.d/
-
-%description vendor-change
-This package provides a libdnf5 configuration drop-in that sets
-allow_vendor_change=True, overriding the distribution default so packages
-can switch vendor to/from RPM Fusion %{_repo} during transactions.
 
 %prep
 echo "Nothing to prep"
@@ -104,6 +95,7 @@ install -p -m644 %{SOURCE6} \
 %{_datadir}/pki/rpm-gpg/*
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}.repo
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-updates*.repo
+%{_datadir}/dnf5/libdnf.conf.d/99-rpmfusion-%{_repo}-override.conf
 
 %if ! 0%{?israwhide}
 %files rawhide
@@ -112,9 +104,6 @@ install -p -m644 %{SOURCE6} \
 
 %files tainted
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
-
-%files vendor-change
-%{_datadir}/dnf5/libdnf.conf.d/99-rpmfusion-%{_repo}-override.conf
 
 %changelog
 * Mon Sep 21 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.2
