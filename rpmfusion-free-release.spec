@@ -7,18 +7,20 @@ Version:        46
 Release:        0.2
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
-License:        BSD
+License:        BSD-1-Clause
 URL:            http://rpmfusion.org
 Source1:        rpmfusion-%{_repo}.repo
 Source2:        rpmfusion-%{_repo}-updates.repo
 Source3:        rpmfusion-%{_repo}-updates-testing.repo
 Source4:        rpmfusion-%{_repo}-rawhide.repo
 Source5:        rpmfusion-%{_repo}-tainted.repo
+Source6:        99-rpmfusion-%{_repo}-override.conf
 Source33:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-2020
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
 Provides:       rpmfusion-%{_repo}-repos(%{version})
+Recommends:     %{name}-vendor-change = %{version}-%{release}
 
 %if 0%{?israwhide}
 Obsoletes:      %{name}-rawhide < %{version}-%{release}
@@ -46,6 +48,15 @@ Requires:       %{name} = %{version}-%{release}
 %description tainted
 This package provides the RPM Fusion %{_repo} Tainted repo definitions.
 
+%package vendor-change
+Summary:        DNF5 configuration allowing vendor change for RPM Fusion %{_repo}
+Requires:       /usr/share/dnf5/libdnf.conf.d/
+
+%description vendor-change
+This package provides a libdnf5 configuration drop-in that sets
+allow_vendor_change=True, overriding the distribution default so packages
+can switch vendor to/from RPM Fusion %{_repo} during transactions.
+
 %prep
 echo "Nothing to prep"
 
@@ -57,7 +68,8 @@ echo "Nothing to build"
 # Create dirs
 install -d -m755 \
   %{buildroot}%{_datadir}/pki/rpm-gpg/  \
-  %{buildroot}%{_datadir}/dnf5/repos.d/
+  %{buildroot}%{_datadir}/dnf5/repos.d/ \
+  %{buildroot}%{_datadir}/dnf5/libdnf.conf.d/
 
 # GPG Key
 %{__install} -Dp -m644 \
@@ -83,6 +95,10 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rp
     %{SOURCE5} \
     %{buildroot}%{_datadir}/dnf5/repos.d/
 
+# libdnf5 drop-in
+install -p -m644 %{SOURCE6} \
+    %{buildroot}%{_datadir}/dnf5/libdnf.conf.d/
+
 
 %files
 %{_datadir}/pki/rpm-gpg/*
@@ -96,6 +112,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rp
 
 %files tainted
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
+
+%files vendor-change
+%{_datadir}/dnf5/libdnf.conf.d/99-rpmfusion-%{_repo}-override.conf
 
 %changelog
 * Mon Sep 21 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.2
