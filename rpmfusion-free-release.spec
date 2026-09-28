@@ -19,8 +19,8 @@ Source33:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-2020
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
-Provides:       rpmfusion-%{_repo}-repos(%{version})
 Requires:       /usr/share/dnf5/libdnf.conf.d/
+Provides:       rpmfusion-%{_repo}-repos(%{version})
 
 %if 0%{?israwhide}
 Obsoletes:      %{name}-rawhide < %{version}-%{release}
