@@ -7,17 +7,19 @@ Version:        45
 Release:        0.3
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
-License:        BSD
+License:        BSD-1-Clause
 URL:            http://rpmfusion.org
 Source1:        rpmfusion-%{_repo}.repo
 Source2:        rpmfusion-%{_repo}-updates.repo
 Source3:        rpmfusion-%{_repo}-updates-testing.repo
 Source4:        rpmfusion-%{_repo}-rawhide.repo
 Source5:        rpmfusion-%{_repo}-tainted.repo
+Source6:        99-rpmfusion-%{_repo}-override.conf
 Source33:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-2020
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
+Requires:       /usr/share/dnf5/libdnf.conf.d/
 Provides:       rpmfusion-%{_repo}-repos(%{version})
 
 %if 0%{?israwhide}
@@ -57,7 +59,8 @@ echo "Nothing to build"
 # Create dirs
 install -d -m755 \
   %{buildroot}%{_datadir}/pki/rpm-gpg/  \
-  %{buildroot}%{_datadir}/dnf5/repos.d/
+  %{buildroot}%{_datadir}/dnf5/repos.d/ \
+  %{buildroot}%{_datadir}/dnf5/libdnf.conf.d/
 
 # GPG Key
 %{__install} -Dp -m644 \
@@ -83,11 +86,15 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rp
     %{SOURCE5} \
     %{buildroot}%{_datadir}/dnf5/repos.d/
 
+# libdnf5 drop-in
+install -p -m644 %{SOURCE6} \
+    %{buildroot}%{_datadir}/dnf5/libdnf.conf.d/
 
 %files
 %{_datadir}/pki/rpm-gpg/*
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}.repo
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-updates*.repo
+%{_datadir}/dnf5/libdnf.conf.d/99-rpmfusion-%{_repo}-override.conf
 
 %if ! 0%{?israwhide}
 %files rawhide
