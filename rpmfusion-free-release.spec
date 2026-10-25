@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        46
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD-1-Clause
@@ -14,12 +14,12 @@ Source2:        rpmfusion-%{_repo}-updates.repo
 Source3:        rpmfusion-%{_repo}-updates-testing.repo
 Source4:        rpmfusion-%{_repo}-rawhide.repo
 Source5:        rpmfusion-%{_repo}-tainted.repo
-Source6:        99-rpmfusion-%{_repo}-override.conf
+Source6:        dnf5vendor-rpmfusion-%{_repo}-to-fedora.toml
 Source33:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-2020
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
-Requires:       /usr/share/dnf5/libdnf.conf.d/
+Requires:       /usr/share/dnf5/vendors.d/
 Provides:       rpmfusion-%{_repo}-repos(%{version})
 
 %if 0%{?israwhide}
@@ -60,7 +60,7 @@ echo "Nothing to build"
 install -d -m755 \
   %{buildroot}%{_datadir}/pki/rpm-gpg/  \
   %{buildroot}%{_datadir}/dnf5/repos.d/ \
-  %{buildroot}%{_datadir}/dnf5/libdnf.conf.d/
+  %{buildroot}%{_datadir}/dnf5/vendors.d/
 
 # GPG Key
 %{__install} -Dp -m644 \
@@ -88,14 +88,14 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_datadir}/pki/rpm-gpg/RPM-GPG-KEY-rp
 
 # libdnf5 drop-in
 install -p -m644 %{SOURCE6} \
-    %{buildroot}%{_datadir}/dnf5/libdnf.conf.d/
+    %{buildroot}%{_datadir}/dnf5/vendors.d/rpmfusion-%{_repo}-to-fedora.toml
 
 
 %files
 %{_datadir}/pki/rpm-gpg/*
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}.repo
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-updates*.repo
-%{_datadir}/dnf5/libdnf.conf.d/99-rpmfusion-%{_repo}-override.conf
+%{_datadir}/dnf5/vendors.d/rpmfusion-%{_repo}-to-fedora.toml
 
 %if ! 0%{?israwhide}
 %files rawhide
@@ -106,6 +106,9 @@ install -p -m644 %{SOURCE6} \
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Sun Oct 25 2026 Neal Gompa <ngompa@fedoraproject.org> - 46-0.3
+- Use proper RPM vendor transition configuration
+
 * Mon Sep 21 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.2
 - Move the conf files to /usr/share
 

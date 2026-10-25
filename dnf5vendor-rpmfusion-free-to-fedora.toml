@@ -1,0 +1,9 @@
+version = '1.0'
+
+[[outgoing_vendors]]
+comparator = "EXACT"
+vendor = "RPM Fusion"
+
+[[incoming_vendors]]
+comparator = "EXACT"
+vendor = "Fedora Project"
