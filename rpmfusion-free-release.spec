@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        45
-Release:        0.3
+Release:        1
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD-1-Clause
@@ -105,6 +105,9 @@ install -p -m644 %{SOURCE6} \
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Sun Nov 01 2025 Leigh Scott <leigh123linux@gmail.com> - 45-1
+- Release for f45
+
 * Mon Sep 21 2026 Leigh Scott <leigh123linux@gmail.com> - 45-0.3
 - Move the conf files to /usr/share
 
