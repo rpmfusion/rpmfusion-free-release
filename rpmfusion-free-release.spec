@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        45
-Release:        1
+Release:        2
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD-1-Clause
@@ -19,7 +19,7 @@ Source33:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-2020
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
-Requires:       /usr/share/dnf5/libdnf.conf.d/
+Requires:       libdnf5
 Provides:       rpmfusion-%{_repo}-repos(%{version})
 
 %if 0%{?israwhide}
@@ -105,7 +105,10 @@ install -p -m644 %{SOURCE6} \
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
-* Sun Nov 01 2025 Leigh Scott <leigh123linux@gmail.com> - 45-1
+* Tue Nov 03 2026 Leigh Scott <leigh123linux@gmail.com> - 45-2
+- Fix requires
+
+* Sun Nov 01 2026 Leigh Scott <leigh123linux@gmail.com> - 45-1
 - Release for f45
 
 * Mon Sep 21 2026 Leigh Scott <leigh123linux@gmail.com> - 45-0.3
