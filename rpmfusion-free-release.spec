@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        46
-Release:        0.2
+Release:        0.3
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD-1-Clause
@@ -19,7 +19,7 @@ Source33:       RPM-GPG-KEY-rpmfusion-%{_repo}-fedora-2020
 BuildArch:      noarch
 
 Requires:       system-release(%{version})
-Requires:       /usr/share/dnf5/libdnf.conf.d/
+Requires:       libdnf5
 Provides:       rpmfusion-%{_repo}-repos(%{version})
 
 %if 0%{?israwhide}
@@ -106,6 +106,9 @@ install -p -m644 %{SOURCE6} \
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Tue Nov 03 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.3
+- Fix requires
+
 * Mon Sep 21 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.2
 - Move the conf files to /usr/share
 
