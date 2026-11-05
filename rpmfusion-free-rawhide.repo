@@ -5,7 +5,7 @@ metalink=https://mirrors.rpmfusion.org/metalink?repo=free-fedora-rawhide&arch=$b
 enabled=0
 enabled_metadata=1
 type=rpm-md
-gpgcheck=0
+gpgcheck=1
 gpgkey=file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-latest file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-rawhide
 
 [rpmfusion-free-rawhide-debuginfo]
