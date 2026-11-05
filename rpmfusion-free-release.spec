@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        44
-Release:        3
+Release:        4
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD
@@ -98,6 +98,9 @@ ln -s $(basename %{SOURCE33}) %{buildroot}%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY
 %config(noreplace) %{_sysconfdir}/yum.repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Thu Nov 05 2026 Nicolas Chauvet <kwizart@gmail.com> - 44-4
+- Turn on gpgcheck for rawhide - rhbz#7576
+
 * Wed Apr 22 2026 Nicolas Chauvet <kwizart@gmail.com> - 44-3
 - Disable metadata on rawhide
 - Fix f46 symlink
