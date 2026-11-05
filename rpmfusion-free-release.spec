@@ -4,7 +4,7 @@
 
 Name:           rpmfusion-%{_repo}-release
 Version:        46
-Release:        0.3
+Release:        0.4
 Summary:        RPM Fusion (%{_repo}) Repository Configuration
 
 License:        BSD-1-Clause
@@ -106,6 +106,9 @@ install -p -m644 %{SOURCE6} \
 %{_datadir}/dnf5/repos.d/rpmfusion-%{_repo}-tainted.repo
 
 %changelog
+* Thu Nov 05 2026 Nicolas Chauvet <kwizart@gmail.com> - 46-0.4
+- Turn on gpgcheck for rawhide - rhbz#7576
+
 * Tue Nov 03 2026 Leigh Scott <leigh123linux@gmail.com> - 46-0.3
 - Fix requires
 
